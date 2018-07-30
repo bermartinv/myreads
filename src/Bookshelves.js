@@ -1,13 +1,13 @@
-import React from 'react'
-import '../App.css'
+import React, { Component } from 'react';
+// import * as BooksAPI from './BooksAPI'
+import './App.css'
 import {Link} from 'react-router-dom'
 import Book from './Book';
 
-class Bookshelves extends React.Component {
+class Bookshelves extends Component {
 
   render(){
-
-    console.log(this.props.books);
+    const {changeShelf,books} = this.props;
 
     return(
       <div className="list-books">
@@ -16,23 +16,22 @@ class Bookshelves extends React.Component {
         </div>
         <div className="list-books-content">
           <div>
-            {/* Currently Reading shelf */}
+            {/* Books which Currently Reading shelf */}
             <div className="bookshelf">
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {/* Add currently reading books to this shelf */}
-                  {this.props.books.map(function(book){
+                  {/* Show  currently reading books */}
+                  {books.map(function(book){
                     if(book.shelf === "currentlyReading"){
                       return <li key={book.id}>
                         {<Book
-                          bookObject = {book}
+                          thisBook = {book}
                           id={book.id}
                           shelf = {book.shelf}
                           title={book.title}
                           author={book.authors}
-                          // cover = {book.imageLinks.thumbnail}
-                          changeShelf = {this.props.changeShelf}
+                          changeShelf = {changeShelf}
                         />}
                       </li>;
                     }
@@ -40,22 +39,22 @@ class Bookshelves extends React.Component {
                 </ol>
               </div>
             </div>
-            {/* Want to Read shelf */}
+            {/* Books which want to read */}
             <div className="bookshelf">
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {/* Add want to read books to this shelf */}
-                  {this.props.books.map(function(book){
+                  {/* Show want to read books */}
+                  {books.map(function(book){
                     if(book.shelf === "wantToRead"){
                       return <li key={book.id}>
                         {<Book
-                          bookObject = {book}
+                          thisBook = {book}
                           shelf = {book.shelf}
                           id={book.id}
                           title={book.title}
                           author={book.authors}
-                          changeShelf = {this.props.changeShelf}
+                          changeShelf = {changeShelf}
                         />}
                       </li>;
                     }
@@ -63,23 +62,22 @@ class Bookshelves extends React.Component {
                 </ol>
               </div>
             </div>
-            {/* Read shelf */}
+            {/* Books which read */}
             <div className="bookshelf">
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {/* Add read books to this shelf */}
-                  {this.props.books.map(function(book){
+                  {/* Show read books */}
+                  {books.map(function(book){
                     if(book.shelf === "read"){
                       return <li key={book.id}>
                         {<Book
-                          bookObject = {book}
+                          thisBook = {book}
                           shelf = {book.shelf}
                           id={book.id}
                           title={book.title}
                           author={book.authors}
-                          cover = {book.imageLinks.thumbnail}
-                          changeShelf = {this.props.changeShelf}
+                          changeShelf = {changeShelf}
                         />}
                       </li>;
                     }
@@ -90,7 +88,7 @@ class Bookshelves extends React.Component {
           </div>
         </div>
         <div className="open-search">
-          <Link to="/search">Add a book</Link>
+          <Link to="/search">Search book</Link>
         </div>
       </div>
     )
