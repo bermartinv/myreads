@@ -90,3 +90,27 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Links
+ [React documentation](https://reactjs.org/tutorial/tutorial.html)
+ [Props](https://reactforbeginners.com/)
+ [Components and props](https://reactjs.org/docs/components-and-props.html)
+ [Stateless functional component](https://tylermcginnis.com/functional-components-vs-stateless-functional-components-vs-stateless-components/)
+ [State component](https://reactjs.org/docs/thinking-in-react.html#step-4-identify-where-your-state-should-live)
+ [Setstate](https://reactjs.org/docs/state-and-lifecycle.html)
+ [PropTypes validation](http://www.enrique7mc.com/2016/07/react-validacion-de-propiedades-con-proptypes/)
+ [PropTypes](https://www.npmjs.com/package/prop-types)
+ [PropTypes typechecking](https://reactjs.org/docs/typechecking-with-proptypes.html)
+ [Controlled components](https://reactjs.org/docs/forms.html#controlled-components)
+ [Lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle)
+ [React Router](https://reacttraining.com/react-router/)
+ [React Router Link](https://reacttraining.com/react-router/web/api/Link)
+
+ ## Extension browser
+ [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US)
+
+ ## npm instalations
+ - React App => npm install -g create-react-app => create-react-app nameApp
+ - React Router => npm install --save react-router-dom
+
+
