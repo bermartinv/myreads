@@ -16,13 +16,20 @@ class BooksApp extends Component {
 
   // conect API to update books
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(() => {
+    /*BooksAPI.update(book, shelf).then(() => {
       // update shelf with new books
       BooksAPI.getAll()
       .then((books) => {
         this.setState({ books: books });
       })
-    }).catch(error => console.log('No se ha podido conectar a la API y update a book'));
+    }).catch(error => console.log('No se ha podido conectar a la API y update a book'));*/
+    BooksAPI.update(book, shelf);
+
+    book.shelf = shelf;    
+
+    this.setState(state => ({
+    books: state.books.filter(b => b.id !== book.id).concat(book),
+    }));
   };
   
   // Search books in API with a query
@@ -39,12 +46,17 @@ class BooksApp extends Component {
   }
 
   // conect API to get all books
-  componentDidMount() {
+  /*componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
         this.setState({ books: books });
       })
-  };
+  };*/
+  // conect API to get all books with async and await
+  async componentDidMount() {
+    const books = await BooksAPI.getAll()
+    this.setState({ books })
+  }
 
   render() {
     const {books,results,search} = this.state;
